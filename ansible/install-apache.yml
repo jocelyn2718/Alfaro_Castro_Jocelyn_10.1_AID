@@ -10,20 +10,20 @@
   - name: Inicar apache 
     service:
       name: httpd
-      enable: yes
+      enabled: yes
       state: started
 
   - name: Config Firewall 
     firewalld:
       service: http 
-      inmediate: true
+      immediate: true
       permanent: true
       state: enabled
 
   - name: Crear Grupo Admin
     group:
       name: web
-      statie: present
+      state: present
 
   - name: Crear Usuario Admin
     user: 
