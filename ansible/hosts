@@ -53,8 +53,18 @@
 ## blue.example.com
 
 [linux]
-192.168.207.132 
+192.168.207.158 
 
 [linux:vars]
 #anisble_user=root
 #ansible_ssh_pass=admin123
+
+[win]
+192.168.207.161
+
+[win:vars]
+ansible_connection=winrm 
+ansible_user=Administrador 
+ansible_password=Qwer1234%%
+ansible_winrm_transport = basic
+ansible_winrm_server_cert_validation=ignore

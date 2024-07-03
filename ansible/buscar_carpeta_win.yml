@@ -1,0 +1,18 @@
+- hosts: win 
+
+  tasks:
+ 
+  - name: Busca carpeta 
+    win_find:
+      paths: C:\{{ansible_date_time.date}}
+    register: result
+
+  - debug:
+      var: result.examined
+
+  - name: Crea Archivo
+    win_copy:
+      src: C:\ansible_examples\
+      dest: C:\ansible_examples_bkp\
+      remote_src: yes
+      when: result.examined > 0
